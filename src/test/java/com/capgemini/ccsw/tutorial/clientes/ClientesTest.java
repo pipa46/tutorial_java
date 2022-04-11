@@ -26,66 +26,25 @@ public class ClientesTest
 	{
 		assertNotNull(c_c);
 		int clientest=5;
-		
 		List<ClientesDto> clientes=c_c.findAll();
-		
-		
-		
 		assertNotNull(clientes);
 		assertEquals(clientest,clientes.size());
 		
 		
 	}
-	/*
-	@Test
-	public void guardar_sin_id_deberia_crear_una_nuevo_cliente()
-	{
-		assertNotNull(c_c);
-		String nuevo_Cliente_nombre="Juan";
-		long id_nuevo=4;
-		
-		ClientesDto dto=new ClientesDto();
-		dto.setNombre(nuevo_Cliente_nombre);
-		
-		c_c.save(null, dto);
-		
-		List<ClientesDto>clientes=c_c.findAll();
-		
-		
-		assertNotNull(clientes);
-		assertEquals(id_nuevo,clientes.size());
-		
-		ClientesDto busqueda_clientes=clientes.stream().filter(item->item.getId().equals(id_nuevo)).findFirst().orElse(null);
-		assertNotNull(busqueda_clientes);
-		assertEquals(nuevo_Cliente_nombre,busqueda_clientes.getNombre());
-	}
-	*/
+	
 	@Test
 	public void si_existe_el_mismo_nombre_no_se_guarda()
 	{
 		assertNotNull(c_c);
-		
 		String nuevo="Xavi";
 		long id=1;
 		ClientesDto dto=new ClientesDto();
 		dto.setNombre(nuevo);
-		
-		
 		c_c.save(null, dto);
 		List<ClientesDto>clientes=c_c.findAll();
-		
-		
-	    
-	    
-		
-		
-		
-		
-		
-	
 		assertNotNull(clientes);
-		
-		//assertEquals(id,clientes.size());
+		assertEquals(id,clientes.size());
 	}
 	
 
